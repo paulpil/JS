@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .square {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Le formulaire suivant doit pouvoir créer un rectancle/carré -->
+<!-- Vous ne devez pas modifier le css -->
+<!-- Si la saisie est une lettre mettre par defaut 0 (zero) -->
+
+<main>
+    <form action="#">
+        <input type="text" name="width"  id="width">
+        <input type="text" name="height"  id="height">
+    </form>
+
+    <div class="square"></div>
+</main>
+
+<script>
+    /**
+     * 1 - Je selectionne les inputs
+     * 2 - Je selectionne div.square
+     * 3 - Je créer des événements sur les 2 inputs (keyup, blur)
+     * 4 - J'applique les valeurs styles sur la div.square (node.style.width = 100)
+     */
+    var width = document.querySelector('input[name="width"]');
+    var height = document.querySelector('input[name="height"]');
+    var square = document.querySelector('.square');
+
+    width.addEventListener('blur', function(e) {
+        width.value = parseFloat(width.value) === NaN ? 0 : width.value;
+
+//        if(parseFloat(width.value) === NaN) {
+//            width.value = 0;
+//        }
+
+        square.style.width = width.value + 'px';
+    });
+
+    height.addEventListener('blur', function(e) {
+        height.value = parseFloat(height.value) === NaN ? 0 : height.value;
+
+//        if(parseFloat(height.value) === NaN) {
+//            height.value = 0;
+//        }
+
+        square.style.height = height.value + 'px';
+    });
+
+//    width.addEventListener('keyup', function(e) {
+//        square.style.width = width.value + 'px';
+//    });
+//
+//    height.addEventListener('keyup', function(e) {
+//        square.style.height = height.value + 'px';
+//    });
+</script>
+
+</body>
+</html>

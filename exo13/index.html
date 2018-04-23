@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!-- Contrôler que le formulaire soit rempli avant l'envoi -->
+<!-- Afficher un message d'erreur dans la div.alert -->
+
+<main>
+    <div class="alert">
+
+    </div>
+
+    <form action="#">
+        <input type="text" name="login" id="login">
+
+        <input type="password" name="password" id="password">
+
+        <button type="submit">Envoyer</button>
+    </form>
+</main>
+
+<script>
+    // Version simple
+//    var alert = document.querySelector('.alert');
+//    var login = document.querySelector('input[name=login]');
+//    var password = document.querySelector('input[name=password]');
+//    var form = document.querySelector('form');
+//
+//    form.addEventListener('submit', function(e) {
+//        if(login.value.length < 4 || password.value.length < 4) {
+//            // Evite l'envoi du formulaire
+//            e.preventDefault();
+//
+//            // Je supprime tous les éléments dans la balise div.alert
+//            var child = alert.children.length;
+//
+//            for(var i = 0; i < child; i++) {
+//                alert.removeChild(alert.children[i]);
+//            }
+//
+//            // Créer mon message dans une balise P
+//            var p = document.createElement('p');
+//            var txt = document.createTextNode('Tous les champs sont requis');
+//
+//            p.appendChild(txt);
+//
+//            // J'ajoute le message dans div.alert
+//            alert.appendChild(p);
+//        }
+//    });
+
+    // Version optimisé
+    var alert = document.querySelector('.alert');
+    var form = document.querySelector('form');
+
+    var inputs = document.getElementsByTagName('input');
+
+    form.addEventListener('submit', function(e) {
+        var error = false;
+
+        for(var i = 0; i < inputs.length; i++) {
+//            if(inputs[i].value === '') {
+//                error = true;
+//            }
+
+            error = inputs[i].value === '';
+        }
+
+        // Si j'ai trouvé une erreur
+        // - Je bloque l'envoi
+        // - J'affiche le message d'erreur
+        if(error) {
+            // Je supprime tous les éléments dans la balise div.alert
+            for(var j = 0; j < alert.children.length; j++) {
+                alert.removeChild(alert.children[j]);
+            }
+
+            var p = document.createElement('p');
+            var txt = document.createTextNode('Tous les champs sont requis');
+
+            p.appendChild(txt);
+            alert.appendChild(p);
+
+            e.preventDefault();
+        }
+    });
+
+</script>
+
+</body>
+</html>

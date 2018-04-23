@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Créer un fichier css qui à une règle redColor qui doit permettre de mettre en rouge le texte -->
+<!-- Avec Javascript mettre un élément de la liste sur deux en rouge grâce à la règle redColor -->
+
+<div>
+    <ul>
+        <li>Text 1</li>
+        <li>Text 2</li>
+        <li>Text 3</li>
+        <li>Text 4</li>
+    </ul>
+</div>
+
+<script>
+    var li = document.getElementsByTagName('li');
+    var n = li.length;
+
+    for(var i = 0; i < n; i++) {
+        if(i % 2) {
+            li[i].className = 'redColor';
+        }
+    }
+
+</script>
+
+</body>
+</html>

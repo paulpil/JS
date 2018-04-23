@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- Créer les éléments permettant de créer l'achitecture suivante -->
+
+<main>
+    <!--<div>-->
+        <!--<p>content</p>-->
+    <!--</div>-->
+</main>
+
+<script>
+    var main = document.getElementsByTagName('main').item(0);
+
+    var text = document.createTextNode('content');
+    var div = document.createElement('div');
+    var p = document.createElement('p');
+
+    main.appendChild(div);
+    div.appendChild(p);
+    p.appendChild(text);
+</script>
+
+</body>
+</html>

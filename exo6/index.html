@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Créer un fichier css avec deux règles -->
+<!-- * Une règle qui color le texte en rouge -->
+<!-- * Une règle qui color le texte en bleu -->
+<!-- En listant les enfants de la balise div mettre en UL>LI en rouge et les balises P en bleu -->
+
+<div>
+    <ul>
+        <li>Text 1</li>
+        <li>Text 2</li>
+        <li>Text 3</li>
+        <li>Text 4</li>
+    </ul>
+    <p>very long content</p>
+    <p>very long content</p>
+    <p>very long content</p>
+    <ul>
+        <li>Text 1</li>
+        <li>Text 2</li>
+        <li>Text 3</li>
+        <li>Text 4</li>
+    </ul>
+    <p>very long content</p>
+</div>
+
+<script>
+    var div = document.getElementsByTagName('div');
+    var n = div[0].children.length;
+
+    for(var i = 0; i < n; i++) {
+        var tagName = div[0].children[i].tagName;
+
+        if(tagName === 'P') {
+            div[0].children[i].className = 'blueColor';
+        } else {
+            var li = div[0].children[i].getElementsByTagName('li');
+            var nLi = li.length;
+
+            for(var j = 0; j < nLi; j++) {
+                li[j].className = 'redColor';
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

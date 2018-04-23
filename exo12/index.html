@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!-- Transformer la structure suivante dans la balise main en code HTML -->
+
+<main>
+
+</main>
+
+<script>
+    var structure = [
+        {
+            'tag': 'ul',
+            'children': [
+                {
+                    'tag': 'li',
+                    'text': 'Text 1'
+                },
+                {
+                    'tag': 'li',
+                    'text': 'Text 2'
+                },
+                {
+                    'tag': 'li',
+                    'text': 'Text 3'
+                },
+                {
+                    'tag': 'li',
+                    'text': 'Text 4'
+                }
+            ]
+        }
+    ];
+
+    var main = document.getElementsByTagName('main').item(0);
+
+//    for(var i = 0; i < structure.length; i++) {
+//        var item = structure[i];
+//    }
+
+    structure.forEach(function(item) {
+        var parentNode = document.createElement(item.tag);
+
+        item.children.forEach(function(child) {
+            var childNode = document.createElement(child.tag);
+            var childText = document.createTextNode(child.text);
+
+            childNode.appendChild(childText);
+
+            parentNode.appendChild(childNode);
+        });
+
+        main.appendChild(parentNode);
+    });
+</script>
+
+</body>
+</html>

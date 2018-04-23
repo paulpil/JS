@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!-- Créer une balise header avec un titre en H1 à l'intérieur au dessus de la balise main -->
+<!-- Ajouter une liste de 4 textes dans la balise main -->
+<!-- Ajouter une balise footer avec une balise paragraphe et du texte en dessous de main  -->
+
+<main>
+
+</main>
+
+<script type="application/javascript" src="lib.js"></script>
+<script>
+    var script = selectTag('script').item(0);
+    var body = selectTag('body').item(0);
+    var main = selectTag('main').item(0);
+
+    /**
+     * Création du header
+     */
+    var header = newElm('header');
+    var h1 = newElm('h1');
+    var textH1 = document.createTextNode('Coucou');
+
+    h1.appendChild(textH1);
+    header.appendChild(h1);
+    body.insertBefore(header, main);
+
+    /**
+     * Création du ul>li>text
+     */
+    var ul = newElm('ul');
+
+    for(var i = 0; i < 4; i++) {
+//        var li = newElm('li');
+//        var textLi = document.createTextNode('text');
+//
+//        li.appendChild(textLi);
+
+        ul.appendChild(createContent('li', 'text'));
+    }
+
+    main.appendChild(ul);
+
+    /**
+     * Création du footer
+     */
+    var footer = newElm('footer');
+//    var p = newElm('p');
+//    var textP = document.createTextNode('Mon super footer');
+//
+//    p.appendChild(textP);
+
+    footer.appendChild(createP('Mon super footer'));
+
+    body.insertBefore(footer, script);
+</script>
+
+</body>
+</html>

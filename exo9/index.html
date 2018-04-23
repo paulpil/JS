@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- Supprimer l'élément ayant la classe "bibi" de la liste -->
+
+<main>
+    <ul>
+        <li>content 1</li>
+        <li class="bibi">content 2</li>
+        <li>content 3</li>
+    </ul>
+</main>
+
+<script>
+    var main = document.getElementsByTagName('main').item(0);
+
+//    var ul = document.getElementsByTagName('ul');
+//    var li = document.getElementsByTagName('li');
+//    var bibi = document.getElementsByClassName('bibi');
+//
+//    li[1].remove(bibi);
+
+//    var ul = document.getElementsByTagName('ul').item(0);
+//    var bibi = document.getElementsByClassName('bibi').item(0);
+//
+//    ul.removeChild(bibi);
+
+    var ul = document.getElementsByTagName('ul');
+    var li = document.getElementsByTagName('li').item(1);
+
+    ul[0].removeChild(li);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Selectionner tous les elements contenant la classe "selector" dans le liste à puce-->
+
+<ul>
+    <li>Text 1</li>
+    <li class="selector">Text 2</li> <!-- <= -->
+    <li>Text 3</li>
+    <li class="selector">Text 4</li> <!-- <= -->
+    <li class="selector">Text 5</li> <!-- <= -->
+    <li class="selector">Text 6</li> <!-- <= -->
+    <li>Text 7</li>
+</ul>
+
+
+<div>
+    <p>le faux texte standard de l'imprimerie depuis les années 1500</p>
+    <p>le faux texte standard de l'imprimerie depuis les années 1500</p>
+    <p class="selector">le faux texte standard de l'imprimerie depuis les années 1500</p>
+</div>
+
+
+<script>
+    var elms = document.getElementsByTagName('ul');
+
+    var selectors = elms[0].getElementsByClassName('selector');
+
+    console.log(selectors);
+</script>
+
+</body>
+</html>

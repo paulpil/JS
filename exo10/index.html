@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- Supprimer tous les éléments ayant la classe "bibi" -->
+<!-- Puis optimiser le code pour que ce soit générique si on ajoutait le code commenté -->
+
+<main>
+    <ul>
+        <li>content 1</li>
+        <li class="bibi">content 2</li>
+        <li>content 3</li>
+    </ul>
+    <div>
+        <p class="bibi">super content</p>
+    </div>
+    <footer>
+        <p class="bibi">Mon super footer</p>
+    </footer>
+</main>
+
+<script>
+//    var ul = document.getElementsByTagName('ul').item(0);
+//    var elms = document.getElementsByClassName('bibi');
+//
+//    ul.removeChild(elms.item(0));
+//
+//    var div = document.getElementsByTagName('div').item(0);
+//    div.removeChild(elms.item(0));
+
+    var main = document.getElementsByTagName('main').item(0);
+
+    var nChildren = main.children.length;
+
+    for(var i = 0; i < nChildren; i++) {
+        var tagName = main.children[i].tagName;
+
+        var elm = document.getElementsByTagName(tagName).item(0);
+
+        var nElmChildren = elm.children.length;
+
+        for(var j = 0; j < nElmChildren; j++) {
+            if(elm.children[j] !== undefined) {
+                var className = elm.children[j].className;
+
+                if(className === 'bibi') {
+                    // ul.removeChild(elm.children[j])
+                    elm.removeChild(elm.children[j]);
+                }
+            }
+        }
+    }
+
+//    var child = document.querySelectorAll('main>*>.bibi');
+//
+//    for(var i = 0; i < child.length; i++) {
+//        child[i].remove();
+//    }
+
+
+</script>
+
+</body>
+</html>

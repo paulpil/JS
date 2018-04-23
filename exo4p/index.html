@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--Convertir le code html en structure de donnée -->
+
+<div>
+    <ul>
+        <li>Text 1</li>
+        <li>Text 2</li>
+        <li>Text 3</li>
+        <li>Text 4</li>
+    </ul>
+    <ul>
+        <li>Text 11</li>
+        <li>Text 21</li>
+        <li>Text 31</li>
+        <li>Text 41</li>
+    </ul>
+</div>
+
+<script>
+    var struct = [];
+
+    var div = document.getElementsByTagName('div');
+
+    var nChildren = div[0].children.length;
+
+    for (var i = 0; i < nChildren; i++) {
+        var obj = {
+            'tag': div[0].children[i].tagName,
+            'children': []
+        };
+
+        var nSubChildren = div[0].children[i].children.length;
+
+        for(var j = 0; j < nSubChildren; j++) {
+            var tagName = div[0].children[i].children[j].tagName;
+            var text = div[0].children[i].children[j].innerText;
+
+            var childObj = {
+                'tag': tagName,
+                'text': text
+            };
+
+            obj.children.push(childObj);
+        }
+
+        struct.push(obj);
+    }
+
+    var structure = [
+        {
+            'tag': 'ul',
+            'children': [
+                {
+                    'tag': 'li',
+                    'text': 'Text 1'
+                },
+                {
+                    'tag': 'li',
+                    'text': 'Text 2'
+                },
+                {
+                    'tag': 'li',
+                    'text': 'Text 3'
+                },
+                {
+                    'tag': 'li',
+                    'text': 'Text 4'
+                }
+            ]
+        }
+    ]
+</script>
+
+</body>
+</html>

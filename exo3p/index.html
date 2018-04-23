@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--Récupérer tous les texts de la liste pour les mettre dans un tableau-->
+
+<ul>
+    <li>Text 1</li>
+    <li>Text 2</li>
+    <li>Text 3</li>
+    <li>Text 4</li>
+</ul>
+
+<script>
+var t = [];
+
+var elms = document.getElementsByTagName('li');
+
+for(var i = 0; i < elms.length; i++) {
+    var value = elms[i].innerText;
+
+    t.push(value);
+}
+
+console.log(t);
+
+</script>
+
+</body>
+</html>

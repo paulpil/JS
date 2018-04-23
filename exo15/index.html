@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+<!-- Ajouter un élément de todo list -->
+
+<main class="container">
+    <form action="">
+        <div class="form-group">
+            <label for="task">Task</label>
+            <input type="text" class="form-control" id="task" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+
+    <ul class="list-group">
+        <!--<li class="list-group-item">TODO Value</li>-->
+    </ul>
+</main>
+
+<script>
+    var form = document.querySelector('form');
+    var ul = document.querySelector('ul.list-group');
+    var input = document.querySelector('input[type=text]');
+
+    /**
+     * Permet la création d'une balise LI avec son contenu
+     */
+    var createTask = function(taskName) {
+        var li = document.createElement('li');
+        li.className = 'list-group-item';
+
+        var text = document.createTextNode(taskName);
+
+        li.appendChild(text);
+
+        return li;
+    };
+
+    /**
+     * Méthode de l'événement submit
+     */
+    var callback = function(e) {
+        e.preventDefault();
+
+        ul.appendChild(createTask(input.value));
+
+        input.value = '';
+    };
+
+    form.addEventListener('submit', callback);
+</script>
+
+</body>
+</html>

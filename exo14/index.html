@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!-- Créer un compteur de clique en fonction de l'architecture suivante -->
+
+<main>
+    <h1>Nb <span>0</span></h1>
+
+    <button type="button">Click</button>
+</main>
+
+<script>
+    var btn = document.querySelector('button[type=button]');
+    var span = document.getElementsByTagName('span').item(0);
+    var i = 0;
+
+    btn.addEventListener('click', function() {
+        span.innerText = ++i;
+    });
+</script>
+
+</body>
+</html>
